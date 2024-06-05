@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Quote Generator</title>
+    <script src="https://kit.fontawesome.com/affd915282.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Quote of the day</h2>
+      <blockquote id="quote">
+        Loading...
+      </blockquote>
+      <span id="author">Loading...</span>
+      <div class="btn1">
+        <button onclick="getquote(api_url)">New Quote</button>
+      </div>
+      <div class="btn2">
+        <button class="sound"><i class="fa-solid fa-volume-high"></i></button>
+        <button class="copy"><i class="fa-solid fa-copy"></i></button>
+        <button onclick="tweet()"><i class="fa-brands fa-twitter"></i></button>
+      </div>
+        </div>
+
+        <script>
+
+          const quote=document.getElementById("quote");
+          const author=document.getElementById("author");
+          const api_url ="https://api.quotable.io/random";
+          const soundBtn=document.querySelector(".sound");
+          const copyBtn=document.querySelector(".copy");
+
+          async function getquote(url){
+            const response = await fetch(url);
+            var data = await response.json();
+            quote.innerHTML =data.content;
+            author.innerHTML =data.author;
+          }
+
+          getquote(api_url);
+          soundBtn.addEventListener("click", ()=>{
+            let utterance =new SpeechSynthesisUtterance(`${quote.innerHTML}`);
+            speechSynthesis.speak(utterance);
+          });
+          copyBtn.addEventListener("click", ()=>{
+          navigator.clipboard.writeText(quote.innerHTML);
+          });
+          function tweet(){
+            window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + " ---by "
+            + author.innerHTML, "Tweet Window", "width=600", "height=300");
+          }
+        </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+}
+body{
+  background: #e686fc;
+}
+.wrapper{
+  background: #fff;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.wrapper h2{
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.wrapper h2::after{
+  content: '';
+  width: 75px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgb(230, 134, 252);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wrapper blockquote{
+  font-size: 26px;
+  min-height: 110px;
+
+}
+.wrapper blockquote::before, .wrapper blockquote::after{
+  content: '"';
+}
+.wrapper span{
+ display: block;
+ margin-top: 10px;
+ float: right;
+ position: relative;
+}
+.wrapper span::before{
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: rgb(230, 134, 252);
+  position: absolute;
+  top: 50%;
+  left: -30px;
+}
+.wrapper div{
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.btn1 button{
+  font-size: 20px;
+  background: rgb(230, 134, 252);
+  color: #fff;
+  border-radius: 25px;
+  border: 1px solid rgb(230, 134, 252);
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: pointer;
+}
+.btn2 button{
+list-style: none;
+margin: 0 5px;
+height: 47px;
+width: 47px;
+display: flex;
+color: rgb(230, 134, 252);
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 2px solid rgb(230, 134, 252);
+cursor: pointer;
+}
